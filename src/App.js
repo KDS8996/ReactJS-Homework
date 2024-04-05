@@ -1,16 +1,18 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import CarList from './components/CarList';
-import CarDetails from './components/CarDetails';
+import './App.css';
+import UserProfile from './components/UserProfile'; // Import UserProfile component
+import { AuthProvider } from './context/AuthContext'; // Import AuthProvider from context
 
 function App() {
   return (
-    <Router>
-      <Switch>
-        <Route exact path="/" component={CarList} />
-        <Route path="/details/:id" component={CarDetails} />
-      </Switch>
-    </Router>
+    <div className="App">
+      <header className="App-header">
+        <h1>Car Inventory Dashboard</h1>
+        <AuthProvider>
+          <UserProfile />
+        </AuthProvider>
+      </header>
+    </div>
   );
 }
 
